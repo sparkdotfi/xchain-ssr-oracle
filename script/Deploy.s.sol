@@ -5,8 +5,9 @@ import "forge-std/Script.sol";
 
 import { Gnosis } from "sparklend-address-registry/src/Gnosis.sol";
 
-import { SSRBalancerRateProviderAdapter } from "src/adapters/SSRBalancerRateProviderAdapter.sol";
-import { SSRAuthOracle }                  from "src/SSRAuthOracle.sol";
+import { SSRBalancerRateProviderAdapter }  from "src/adapters/SSRBalancerRateProviderAdapter.sol";
+import { SSRChainlinkRateProviderAdapter } from "src/adapters/SSRChainlinkRateProviderAdapter.sol";
+import { SSRAuthOracle }                   from "src/SSRAuthOracle.sol";
 
 import { SSROracleForwarderOptimism, OptimismForwarder } from "src/forwarders/SSROracleForwarderOptimism.sol";
 import { SSROracleForwarderGnosis }                      from "src/forwarders/SSROracleForwarderGnosis.sol";
@@ -41,7 +42,8 @@ contract Deploy is Script {
         SSRAuthOracle oracle = new SSRAuthOracle();
         address receiver = deployReceiver(forwarder, address(oracle));
         require(receiver == expectedReceiver, "receiver mismatch");
-        SSRBalancerRateProviderAdapter adapter = new SSRBalancerRateProviderAdapter(oracle);
+        SSRBalancerRateProviderAdapter balancerAdapter   = new SSRBalancerRateProviderAdapter(oracle);
+        SSRChainlinkRateProviderAdapter chainlinkAdapter = new SSRChainlinkRateProviderAdapter(oracle);
 
         // Configure
         oracle.grantRole(oracle.DATA_PROVIDER_ROLE(), receiver);
@@ -51,10 +53,11 @@ contract Deploy is Script {
         oracle.renounceRole(oracle.DEFAULT_ADMIN_ROLE(), deployer);
         vm.stopBroadcast();
 
-        console.log("Deployed Forwarder at:                     ", forwarder);
-        console.log("Deployed Receiver at:                      ", receiver);
-        console.log("Deployed SSRAuthOracle at:                 ", address(oracle));
-        console.log("Deployed SSRBalancerRateProviderAdapter at:", address(adapter));
+        console.log("Deployed Forwarder at:                     ",  forwarder);
+        console.log("Deployed Receiver at:                      ",  receiver);
+        console.log("Deployed SSRAuthOracle at:                 ",  address(oracle));
+        console.log("Deployed SSRBalancerRateProviderAdapter at:",  address(balancerAdapter));
+        console.log("Deployed SSRChainlinkRateProviderAdapter at:", address(chainlinkAdapter));
     }
 
     function deployForwarder(address) internal virtual returns (address) {
