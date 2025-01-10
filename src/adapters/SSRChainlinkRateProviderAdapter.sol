@@ -16,7 +16,7 @@ contract SSRChainlinkRateProviderAdapter {
     }
 
     function latestAnswer() external view returns (int256) {
-        // Note: cannot overflow due to division
+        // Note: Cannot overflow due to division
         return int256(ssrOracle.getConversionRate() / 1e19);
     }
 
