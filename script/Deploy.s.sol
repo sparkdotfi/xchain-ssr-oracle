@@ -42,7 +42,7 @@ contract Deploy is Script {
         SSRAuthOracle oracle = new SSRAuthOracle();
         address receiver = deployReceiver(forwarder, address(oracle));
         require(receiver == expectedReceiver, "receiver mismatch");
-        SSRBalancerRateProviderAdapter balancerAdapter   = new SSRBalancerRateProviderAdapter(oracle);
+        SSRBalancerRateProviderAdapter  balancerAdapter  = new SSRBalancerRateProviderAdapter(oracle);
         SSRChainlinkRateProviderAdapter chainlinkAdapter = new SSRChainlinkRateProviderAdapter(oracle);
 
         // Configure
