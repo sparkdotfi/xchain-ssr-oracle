@@ -8,11 +8,12 @@ import { IERC4626 } from "forge-std/interfaces/IERC4626.sol";
 import { Bridge }                from "xchain-helpers/testing/Bridge.sol";
 import { Domain, DomainHelpers } from "xchain-helpers/testing/Domain.sol";
 
-import { SSRAuthOracle  }                  from "../src/SSRAuthOracle.sol";
-import { SSROracleForwarderBase  }         from "../src/forwarders/SSROracleForwarderBase.sol";
-import { SSRBalancerRateProviderAdapter  } from "../src/adapters/SSRBalancerRateProviderAdapter.sol";
-import { ISSROracle }                      from "../src/interfaces/ISSROracle.sol";
-import { ISUSDS }                          from "../src/interfaces/ISUSDS.sol";
+import { SSRAuthOracle  }                   from "../src/SSRAuthOracle.sol";
+import { SSROracleForwarderBase  }          from "../src/forwarders/SSROracleForwarderBase.sol";
+import { SSRBalancerRateProviderAdapter  }  from "../src/adapters/SSRBalancerRateProviderAdapter.sol";
+import { SSRChainlinkRateProviderAdapter  } from "../src/adapters/SSRChainlinkRateProviderAdapter.sol";
+import { ISSROracle }                       from "../src/interfaces/ISSROracle.sol";
+import { ISUSDS }                           from "../src/interfaces/ISUSDS.sol";
 
 interface ISUSDSDripLike {
     function drip() external;
@@ -39,7 +40,8 @@ abstract contract SSROracleXChainIntegrationBaseTest is Test {
     SSRAuthOracle oracle;
 
     // Test various adapters
-    SSRBalancerRateProviderAdapter balancerAdapter;
+    SSRBalancerRateProviderAdapter  balancerAdapter;
+    SSRChainlinkRateProviderAdapter chainlinkAdapter;
 
     function setUp() public {
         mainnet = getChain("mainnet").createSelectFork(20692134);  // Sept 6, 2024
@@ -52,7 +54,8 @@ abstract contract SSROracleXChainIntegrationBaseTest is Test {
 
         remote.selectFork();
 
-        balancerAdapter = new SSRBalancerRateProviderAdapter(oracle);
+        balancerAdapter  = new SSRBalancerRateProviderAdapter(oracle);
+        chainlinkAdapter = new SSRChainlinkRateProviderAdapter(oracle);
     }
 
     function setupDomain() internal virtual;
@@ -107,6 +110,10 @@ abstract contract SSROracleXChainIntegrationBaseTest is Test {
 
         assertEq(balancerAdapter.getRate(), 1e18);
         assertApproxEqAbs(balancerAdapter.getRate(), susdsConversionRate, 1e10);
+
+        assertEq(chainlinkAdapter.latestAnswer(), 1e8);
+        (, int256 answer,,,) = chainlinkAdapter.latestRoundData();
+        assertEq(answer, 1e8);
     }
 
 }
