@@ -41,15 +41,15 @@ contract SSRChainlinkRateProviderAdapterTest is Test {
     }
 
     function test_hardcodedValues() public {
-        assertEq(adapter.decimals(),    8);
+        assertEq(adapter.decimals(),    27);
         assertEq(adapter.description(), "sUSDS / USDS");
         assertEq(adapter.version(),     1);
     }
 
     function test_conversion() public {
-        _assertData(1e8);
+        _assertData(1e27);
         oracle.setConversionRate(1.2e27);
-        _assertData(1.2e8);
+        _assertData(1.2e27);
     }
 
     function _assertData(int256 value) internal {
