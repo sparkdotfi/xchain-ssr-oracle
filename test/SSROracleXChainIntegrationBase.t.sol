@@ -111,9 +111,9 @@ abstract contract SSROracleXChainIntegrationBaseTest is Test {
         assertEq(balancerAdapter.getRate(), 1e18);
         assertApproxEqAbs(balancerAdapter.getRate(), susdsConversionRate, 1e10);
 
-        assertEq(chainlinkAdapter.latestAnswer(), 1e8);
+        assertEq(chainlinkAdapter.latestAnswer(), 1e27);
         (, int256 answer,,,) = chainlinkAdapter.latestRoundData();
-        assertEq(answer, 1e8);
+        assertEq(answer, 1e27);
     }
 
 }

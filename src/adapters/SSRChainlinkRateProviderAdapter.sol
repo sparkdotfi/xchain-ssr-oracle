@@ -16,8 +16,8 @@ contract SSRChainlinkRateProviderAdapter {
     }
 
     function latestAnswer() external view returns (int256) {
-        // Note: Cannot overflow due to division
-        return int256(ssrOracle.getConversionRate() / 1e19);
+        // Note: Assume no overflow
+        return int256(ssrOracle.getConversionRate());
     }
 
     function latestTimestamp() external view returns (uint256) {
@@ -25,7 +25,7 @@ contract SSRChainlinkRateProviderAdapter {
     }
 
     function decimals() external pure returns (uint8) {
-        return 8;
+        return 27;
     }
 
     function description() external pure returns (string memory) {
@@ -43,7 +43,8 @@ contract SSRChainlinkRateProviderAdapter {
     {
         return (
             0,
-            int256(ssrOracle.getConversionRate() / 1e19),
+            // Note: Assume no overflow
+            int256(ssrOracle.getConversionRate()),
             0,
             block.timestamp,
             0
