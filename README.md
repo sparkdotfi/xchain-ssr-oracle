@@ -34,6 +34,14 @@ Run `make deploy-XXX` where XXX is one of the supported networks. Be sure to hav
 
 ## Deployments (USDS)
 
+### Arbitrum
+
+Forwarder (Ethereum): [0x1A229AdbAC83A948226783F2A3257B52006247D5](https://etherscan.io/address/0x1A229AdbAC83A948226783F2A3257B52006247D5#code)  
+AuthOracle (Arbitrum): [0xEE2816c1E1eed14d444552654Ed3027abC033A36](https://arbiscan.io/address/0xEE2816c1E1eed14d444552654Ed3027abC033A36#code)  
+Receiver (Arbitrum): [0x567214Dc57a2385Abc4a756f523ddF0275305Cbc](https://arbiscan.io/address/0x567214Dc57a2385Abc4a756f523ddF0275305Cbc#code)  
+Chainlink Rate Provider (Arbitrum): [0x84AB0c8C158A1cD0d215BE2746cCa668B79cc287](https://arbiscan.io/address/0x84AB0c8C158A1cD0d215BE2746cCa668B79cc287#code)  
+Balancer Rate Provider (Arbitrum): [0xc0737f29b964e6fC8025F16B30f2eA4C2e2d6f22](https://arbiscan.io/address/0xc0737f29b964e6fC8025F16B30f2eA4C2e2d6f22#code)  
+
 ### Base
 
 Forwarder (Ethereum): [0xB2833392527f41262eB0E3C7b47AFbe030ef188E](https://etherscan.io/address/0xB2833392527f41262eB0E3C7b47AFbe030ef188E#code)  
