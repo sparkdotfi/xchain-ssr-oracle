@@ -50,6 +50,14 @@ Receiver (Base): [0x212871A1C235892F86cAB30E937e18c94AEd8474](https://basescan.o
 Chainlink Rate Provider (Base): [0x026a5B6114431d8F3eF2fA0E1B2EDdDccA9c540E](https://basescan.org/address/0x026a5B6114431d8F3eF2fA0E1B2EDdDccA9c540E#code)  
 Balancer Rate Provider (Base): [0x49aF4eE75Ae62C2229bb2486a59Aa1a999f050f0](https://basescan.org/address/0x49aF4eE75Ae62C2229bb2486a59Aa1a999f050f0#code)  
 
+### Optimism
+
+Forwarder (Ethereum): [0x6Ac25B8638767a3c27a65597A74792d599038724](https://etherscan.io/address/0x6Ac25B8638767a3c27a65597A74792d599038724#code)  
+AuthOracle (Optimism): [0x6E53585449142A5E6D5fC918AE6BEa341dC81C68](https://optimistic.etherscan.io/address/0x6E53585449142A5E6D5fC918AE6BEa341dC81C68#code)  
+Receiver (Optimism): [0xE2868095814c2714039b3A9eBEE035B9E2c411E5](https://optimistic.etherscan.io/address/0xE2868095814c2714039b3A9eBEE035B9E2c411E5#code)  
+Chainlink Rate Provider (Optimism): [0x8e3b08e65cC59d293932F5e9aF3186970087a529](https://optimistic.etherscan.io/address/0x8e3b08e65cC59d293932F5e9aF3186970087a529#code)  
+Balancer Rate Provider (Optimism): [0xe1e4953C93Da52b95eDD0ffd910565D3369aCd6b](https://optimistic.etherscan.io/address/0xe1e4953C93Da52b95eDD0ffd910565D3369aCd6b#code)  
+
 ## Legacy Deployments (DAI)
 
 ### World Chain
