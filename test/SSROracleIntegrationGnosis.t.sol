@@ -19,7 +19,9 @@ contract SSROracleIntegrationGnosisTest is SSROracleXChainIntegrationBaseTest {
 
         mainnet.selectFork();
 
-        forwarder = new SSROracleForwarderGnosis(address(susds), vm.computeCreateAddress(address(this), 3));
+        address expectedReceiver = vm.computeCreateAddress(address(this), 4);
+
+        forwarder = new SSROracleForwarderGnosis(address(susds), expectedReceiver);
 
         remote.selectFork();
 

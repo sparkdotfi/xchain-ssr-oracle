@@ -19,14 +19,14 @@ contract SSROracleIntegrationArbitrumOneTest is SSROracleXChainIntegrationBaseTe
 
         mainnet.selectFork();
 
-        address expectedReceiver = computeCreateAddress(address(this), 4);
+        address expectedReceiver = vm.computeCreateAddress(address(this), 5);
         forwarder = new SSROracleForwarderArbitrum(address(susds), expectedReceiver, ArbitrumForwarder.L1_CROSS_DOMAIN_ARBITRUM_ONE);
 
         remote.selectFork();
 
         oracle = new SSRAuthOracle();
         ArbitrumReceiver receiver = new ArbitrumReceiver(address(forwarder), address(oracle));
-        
+
         oracle.grantRole(oracle.DATA_PROVIDER_ROLE(), address(receiver));
 
         assertEq(address(receiver), expectedReceiver);
