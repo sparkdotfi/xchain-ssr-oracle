@@ -19,7 +19,7 @@ contract SSROracleIntegrationBaseChainTest is SSROracleXChainIntegrationBaseTest
 
         mainnet.selectFork();
 
-        address expectedReceiver = vm.computeCreateAddress(address(this), 3);
+        address expectedReceiver = vm.computeCreateAddress(address(this), 4);
         forwarder = new SSROracleForwarderOptimism(address(susds), expectedReceiver, OptimismForwarder.L1_CROSS_DOMAIN_BASE);
 
         remote.selectFork();
