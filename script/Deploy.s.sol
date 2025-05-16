@@ -149,3 +149,19 @@ contract DeployArbitrumOne is Deploy {
     }
 
 }
+
+contract DeployUnichain is Deploy {
+    
+    function run() external {
+        deploy(vm.envString("UNICHAIN_RPC_URL"));
+    }
+
+    function deployForwarder(address receiver) internal override returns (address) {
+        return address(new SSROracleForwarderOptimism(SUSDS, receiver, OptimismForwarder.L1_CROSS_DOMAIN_UNICHAIN));
+    }
+
+    function deployReceiver(address forwarder, address oracle) internal override returns (address) {
+        return address(new OptimismReceiver(forwarder, oracle));
+    }
+
+}
