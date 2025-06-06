@@ -96,5 +96,3 @@ AuthOracle (Unichain): [0x1566BFA55D95686a823751298533D42651183988](https://unic
 Receiver (Unichain): [0x4A71f81C6109230932978bAB7CA746f0be0C4580](https://unichain.blockscout.com/address/0x4A71f81C6109230932978bAB7CA746f0be0C4580?tab=contract)  
 Balancer Rate Provider (Unichain): [0x93c81ADc7F98FdBC8C7a15eCBeD312c8F6adbcB3](https://unichain.blockscout.com/address/0x93c81ADc7F98FdBC8C7a15eCBeD312c8F6adbcB3?tab=contract)  
 Chainlink Rate Provider (Unichain): [0x7ac96180C4d6b2A328D3a19ac059D0E7Fc3C6d41](https://unichain.blockscout.com/address/0x7ac96180C4d6b2A328D3a19ac059D0E7Fc3C6d41?tab=contract)
-
----
