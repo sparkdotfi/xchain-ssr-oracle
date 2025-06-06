@@ -98,5 +98,3 @@ Balancer Rate Provider (Unichain): [0x93c81ADc7F98FdBC8C7a15eCBeD312c8F6adbcB3](
 Chainlink Rate Provider (Unichain): [0x7ac96180C4d6b2A328D3a19ac059D0E7Fc3C6d41](https://unichain.blockscout.com/address/0x7ac96180C4d6b2A328D3a19ac059D0E7Fc3C6d41?tab=contract)
 
 ---
-
-_The IP in this repository was assigned to Mars SPC Limited in respect of the MarsOne SP_
